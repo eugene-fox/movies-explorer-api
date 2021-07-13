@@ -39,7 +39,7 @@ const movieSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-    require: true,
+    required: true,
     validate: {
       validator(v) {
         return validator.isURL(v, { require_protocol: true });
@@ -49,7 +49,7 @@ const movieSchema = new mongoose.Schema({
   },
   trailer: {
     type: String,
-    require: true,
+    required: true,
     validate: {
       validator(v) {
         return validator.isURL(v, { require_protocol: true });
@@ -59,7 +59,7 @@ const movieSchema = new mongoose.Schema({
   },
   thumbnail: {
     type: String,
-    require: true,
+    required: true,
     validate: {
       validator(v) {
         return validator.isURL(v, { require_protocol: true });
@@ -68,9 +68,11 @@ const movieSchema = new mongoose.Schema({
     },
   },
   owner: {
+    type: String,
     required: true,
   },
   movieId: {
+    type: String,
     required: true,
   },
   nameRU: {
