@@ -6,6 +6,8 @@ const helmet = require('helmet');
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 
+require('dotenv').config();
+
 const { PORT, DB_ADDRESS } = require('./config');
 
 const routes = require('./routes');
