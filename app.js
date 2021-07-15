@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const helmet = require('helmet');
 
+require('dotenv').config();
+
 const limiter = require('./middlewares/limiter');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-
-require('dotenv').config();
 
 const { PORT, DB_ADDRESS } = require('./config');
 
