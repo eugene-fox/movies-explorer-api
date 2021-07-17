@@ -9,10 +9,7 @@ const NotFoundError = require('../errors/not-found-error');
 const BadRequestError = require('../errors/bad-request-error');
 const ConflictError = require('../errors/conflict-error');
 
-// Отработал +
 // Регистрируем нового пользователя
-// Cоздаёт пользователя с переданными в теле
-// email, password и name
 const userCreate = (req, res, next) => {
   const { email, password, name } = req.body;
   User.findOne({ email })
@@ -40,7 +37,6 @@ const userCreate = (req, res, next) => {
     .catch(next);
 };
 
-// Отработал +
 // Логин по имени и паролю
 const login = (req, res, next) => {
   const { email, password } = req.body;
@@ -52,7 +48,6 @@ const login = (req, res, next) => {
     .catch(next);
 };
 
-//  Отработал +
 //  Получаем данные пользователя
 const getUserInfo = (req, res, next) => {
   User.findById(req.user._id)
@@ -63,7 +58,6 @@ const getUserInfo = (req, res, next) => {
     .catch(next);
 };
 
-//  Отработал +
 //  Редактирование профиля пользователя
 const updateUserProfile = (req, res, next) => {
   const { name, email } = req.body;

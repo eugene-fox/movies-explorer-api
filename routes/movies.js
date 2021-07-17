@@ -12,11 +12,8 @@ const {
   deleteMovie,
 } = require('../controllers/movies');
 
-// Защищен
 router.post('/', celebrate(movieSaveValidator), auth, saveMovie);
-// Защита не требуется
 router.get('/', auth, getMovies);
-// Защищен
 router.delete('/:movieId', celebrate(movieIdValidator), auth, deleteMovie);
 
 module.exports = router;

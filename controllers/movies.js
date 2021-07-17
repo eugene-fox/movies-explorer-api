@@ -3,7 +3,6 @@ const NotFoundError = require('../errors/not-found-error');
 const ForbiddenError = require('../errors/forbidden-error');
 const BadRequestError = require('../errors/bad-request-error');
 
-// Отработал +
 // Контроллер получения фильмов пользователя
 const getMovies = (req, res, next) => {
   const owner = req.user._id;
@@ -14,7 +13,6 @@ const getMovies = (req, res, next) => {
     .catch(next);
 };
 
-// Отработал +
 // Контроллер сохранения нового фильма
 const saveMovie = (req, res, next) => {
   const owner = req.user._id;
@@ -58,8 +56,7 @@ const saveMovie = (req, res, next) => {
     });
 };
 
-//  Отработал +
-//  Контроллер
+//  Контроллер удаления фильма
 const deleteMovie = (req, res, next) => {
   const { movieId } = req.params;
 
