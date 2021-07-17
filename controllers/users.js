@@ -37,7 +37,7 @@ const userCreate = (req, res, next) => {
         next(new ConflictError('Пользователь с таким email уже существует'));
       }
     })
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 // Отработал +
@@ -60,7 +60,7 @@ const getUserInfo = (req, res, next) => {
     .then((user) => {
       res.status(200).send(user);
     })
-    .catch((err) => next(err));
+    .catch(next);
 };
 
 //  Отработал +
