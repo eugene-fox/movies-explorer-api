@@ -49,7 +49,6 @@ const movieSaveValidator = {
     image: Joi.string().required().custom(customUrlValidation, 'Is URL?'),
     trailer: Joi.string().required().custom(customUrlValidation, 'Is URL?'),
     thumbnail: Joi.string().required().custom(customUrlValidation, 'Is URL?'),
-    owner: Joi.string().hex().length(24),
     movieId: Joi.number().required().custom(customIsInteger, 'Is Int?'),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
