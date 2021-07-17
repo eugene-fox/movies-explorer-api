@@ -83,7 +83,7 @@ const updateUserProfile = (req, res, next) => {
       } else if (err.name === 'CastError') {
         next(new BadRequestError('Передан некорректный ID пользователя'));
       } else if (err.codeName === 'DuplicateKey') {
-        next(new BadRequestError('Передан недоступный email адресс'));
+        next(new ConflictError('Передан недоступный email адресс'));
       } else {
         next(err);
       }
