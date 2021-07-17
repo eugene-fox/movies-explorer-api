@@ -66,9 +66,7 @@ const deleteMovie = (req, res, next) => {
   Movie.findById(movieId)
     .orFail(() => new NotFoundError('Фильм с таким ID не найден'))
     .then((movie) => {
-      // if (!card.owner.equals(req.user._id)) {
-      // TODO c equals не работает почему то
-      if (movie.owner !== req.user._id) {
+      if (!movie.owner.equals(req.user._id)) {
         return next(new ForbiddenError('Нельзя удалить фильм пренадлежащий другому пользователю'));
       }
       return Movie.findByIdAndRemove(movieId)
