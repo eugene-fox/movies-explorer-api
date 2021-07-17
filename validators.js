@@ -9,6 +9,14 @@ const customUrlValidation = (value, helpers) => {
   return value;
 };
 
+const customIsInteger = (value, helpers) => {
+  if (!Number.isInteger(value)) {
+    return helpers.message('Переданная строка не является целым числом');
+  }
+
+  return value;
+};
+
 const userLoginValidator = {
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -42,7 +50,7 @@ const movieSaveValidator = {
     trailer: Joi.string().required().custom(customUrlValidation, 'Is URL?'),
     thumbnail: Joi.string().required().custom(customUrlValidation, 'Is URL?'),
     owner: Joi.string().hex().length(24),
-    movieId: Joi.string().required(),
+    movieId: Joi.number().required().custom(customIsInteger, 'Is Int?'),
     nameRU: Joi.string().required(),
     nameEN: Joi.string().required(),
   }),

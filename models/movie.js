@@ -72,8 +72,14 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   movieId: {
-    type: String,
+    type: Number,
     required: true,
+    validate: {
+      validator(v) {
+        return Number.isInteger(v);
+      },
+      message: 'Полученное значение не является целым числом',
+    },
   },
   nameRU: {
     type: String,
