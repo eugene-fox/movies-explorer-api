@@ -16,6 +16,8 @@ const NotFoundError = require('./errors/not-found-error');
 
 const app = express();
 
+app.use(requestLogger);
+
 app.use(limiter);
 
 // Helmet помогает защитить приложения Express, задав различные заголовки HTTP
@@ -32,8 +34,6 @@ mongoose.connect(DB_ADDRESS, {
   useFindAndModify: false,
   useUnifiedTopology: true,
 });
-
-app.use(requestLogger);
 
 // Подключам все роуты из файла ./routes.js
 app.use(routes);
