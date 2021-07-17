@@ -12,7 +12,6 @@ const { PORT, DB_ADDRESS } = require('./config');
 
 const routes = require('./routes');
 const errorHandler = require('./middlewares/errorHandler');
-const NotFoundError = require('./errors/not-found-error');
 
 const app = express();
 
@@ -37,10 +36,6 @@ mongoose.connect(DB_ADDRESS, {
 
 // Подключам все роуты из файла ./routes.js
 app.use(routes);
-
-app.use('*', (req, res, next) => {
-  next(new NotFoundError('Запрашиваемый ресурс не найден'));
-});
 
 // подключаем логгер ошибок
 app.use(errorLogger);
