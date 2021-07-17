@@ -11,9 +11,7 @@ const getMovies = (req, res, next) => {
     .then((cards) => {
       res.status(200).send(cards);
     })
-    .catch((err) => {
-      next(err);
-    });
+    .catch(next);
 };
 
 // Отработал +
